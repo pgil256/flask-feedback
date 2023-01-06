@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create User
+{% endblock %}
+
+{% block content %}
+
+<h1>Signup</h1>
+
+<form>
+
+    {{ form.hidden_tag() }}
+
+    {% for field in form.errors %}
+    <div>
+        {{ field }}:
+        <ul>      
+            {{% for error in form.errors[field] %}}
+            <li>{{ errors }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+    {% for field in form %}
+
+    <div>
+        {{ field.label }}
+        <div>
+            {{ field }}
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <button>Sign up</button>
+</form>
+
+{% endblock %}
